@@ -6,13 +6,11 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:10:53 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/29 21:03:48 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/10/30 01:36:51 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 static char	*allocate_word(const char *string, char character,
 		size_t *current_position)
@@ -70,11 +68,11 @@ static char	*get_next_word(const char *string, char character, size_t *index)
 	return (ft_substr(string, start, *index - start));
 }
 
-static void *validate_not_null(void *pointer)
+static void	*validate_not_null(void *pointer)
 {
-    if (!pointer)
-        return (NULL);
-    return (pointer);
+	if (!pointer)
+		return (NULL);
+	return (pointer);
 }
 
 char	**ft_split(char const *string, char character)
@@ -94,12 +92,12 @@ char	**ft_split(char const *string, char character)
 		result[word_index] = get_next_word(string, character,
 				&current_position);
 		if (!result[word_index])
-        {
+		{
 			while (word_index > 0)
 				free(result[--word_index]);
-		    free(result);
-		    return (NULL);
-        }
+			free(result);
+			return (NULL);
+		}
 		word_index++;
 	}
 	result[word_index] = (NULL);

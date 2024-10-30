@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 19:24:18 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/29 22:36:12 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/10/30 01:39:15 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,53 +21,4 @@ char *ft_strdup(const char *source)
         return NULL;
     ft_memcpy(duplicate, source, ft_strlen(source) + 1);
     return duplicate;
-}
-int main() 
-{
-    // Caso de prueba 1: Cadena simple
-    const char *original1 = "Hola, Mundo";
-    char *copy1 = ft_strdup(original1);
-
-    if (copy1) 
-    {
-        printf("Original: %s\n", original1);
-        printf("Copia: %s\n", copy1);
-        free(copy1);  // Liberar la memoria asignada
-    } 
-    else 
-    {
-        printf("Error al duplicar la cadena.\n");
-    }
-
-    // Caso de prueba 2: Cadena vacia
-    const char *original2 = "";
-    char *copy2 = ft_strdup(original2);
-
-    if (copy2) 
-    {
-        printf("Original (vacío): \"%s\"\n", original2);
-        printf("Copia (vacío): \"%s\"\n", copy2);
-        free(copy2);
-    } 
-    else 
-    {
-        printf("Error al duplicar la cadena vacía.\n");
-    }
-
-    // Caso de prueba 3: Cadena con caracteres especiales
-    const char *original3 = "Programar\nen C\tes genial";
-    char *copy3 = ft_strdup(original3);
-
-    if (copy3) 
-    {
-        printf("Original con caracteres especiales: %s\n", original3);
-        printf("Copia con caracteres especiales: %s\n", copy3);
-        free(copy3);
-    } 
-    else 
-    {
-        printf("Error al duplicar la cadena con caracteres especiales.\n");
-    }
-
-    return 0;
 }

@@ -6,15 +6,12 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 19:19:44 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/29 17:43:15 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/10/30 01:44:23 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-// Asignar memoria para una cadena vacia y colocar el caracter nulo
 static char	*ft_allocate_empty_string(void)
 {
 	char	*empty_string;
@@ -50,16 +47,4 @@ char	*ft_substr(char const *string, unsigned int start, size_t length)
 		new_string[dest_index++] = string[src_index++];
 	new_string[dest_index] = '\0';
 	return (new_string);
-}
-
-int main() 
-{
-    const char *original = "Hello, world!";
-    char *subcadena = ft_substr(original, 7, 5);
-
-    printf("Cadena original: %s\n", original);   // Imprime "Hello, world!"
-    printf("Subcadena: %s\n", subcadena);         // Imprime "world"
-
-    free(subcadena);  // Liberamos la memoria de la subcadena
-    return (0);
 }

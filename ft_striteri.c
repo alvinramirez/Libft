@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:15:32 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/28 16:00:18 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/10/30 01:39:25 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,4 @@ void	ft_striteri(char *string, void (*function)(unsigned int, char *))
 		(*function)(count, &string[count]);
 		count++;
 	}
-}
-int main ()
-{
-	char str[] = "hola, mundo";
-
-	printf("Cadena original: %s\n", str);
-	ft_striteri(str, ft_toupper);
-
-	printf("Cadena en mayusculas: %s\n", str);
-
-	return 0;
 }

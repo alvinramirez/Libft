@@ -6,13 +6,11 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 19:48:37 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/29 15:58:45 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/10/30 01:43:06 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stddef.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t length)
 {
@@ -35,23 +33,4 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t length)
 		haystack_index++;
 	}
 	return (NULL);
-}
-int main(void) 
-{
-    const char *haystack = "Hola, gatito!";
-    const char *needle = "gatito";
-    size_t length = 12;
-
-    char *result = ft_strnstr(haystack, needle, length);
-
-    if (result != NULL) 
-    {
-        printf("Subcadena encontrada: %s\n", result);
-    } 
-    else 
-    {
-        printf("Subcadena no encontrada.\n");
-    }
-
-    return 0;
 }

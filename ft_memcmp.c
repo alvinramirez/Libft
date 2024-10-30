@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 19:48:14 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/28 04:02:16 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/10/30 01:33:15 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,4 @@ int	ft_memcmp(const void *string1, const void *string2, size_t number)
 		count++;
 	}
 	return (0);
-}
-
-int main(void) {
-    char block1[] = { 'a', 'b', 'c', 'd' };
-    char block2[] = { 'a', 'b', 'c', 'e' };
-
-    int result = ft_memcmp(block1, block2, 4);
-
-    if (result == 0) {
-        printf("Los bloques de memoria son iguales.\n");
-    } else if (result < 0) {
-        printf("El primer bloque es menor que el segundo.\n");
-    } else {
-        printf("El primer bloque es mayor que el segundo.\n");
-    }
-
-    return 0;
 }
