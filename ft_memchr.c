@@ -6,12 +6,13 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 19:47:51 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/28 03:41:54 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/10/29 22:31:37 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Funcion para buscar un caracter especifico en una cadena
 void	*ft_memchr(const void *string, int character, size_t number)
 {
 	size_t				count;
