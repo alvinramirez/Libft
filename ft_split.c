@@ -6,81 +6,53 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:10:53 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/30 01:36:51 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/11/01 23:48:02 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*allocate_word(const char *string, char character,
-		size_t *current_position)
+static int count_words(const char *str, char character)
 {
-	size_t	start;
-
-	while (string[*current_position] && string[*current_position] == character)
-		(*current_position)++;
-	start = *current_position;
-	while (string[*current_position] && string[*current_position] != character)
-		(*current_position)++;
-	return (ft_substr(string, start, *current_position - start));
-}
-
-static char	**allocate_result_array(const char *string, char character,
-		size_t *total_words)
-{
-	char	**result;
-
-	*total_words = count_words(string, character);
-	result = malloc((*total_words + 1) * sizeof(char *));
-	return (result);
-}
-
-static size_t	count_words(const char *string, char character)
-{
-	size_t	count;
-	int		in_word;
-
-	count = 0;
-	in_word = 0;
-	while (*string)
+	int word_count;
+	int inside_word;
+	
+	word_count = 0;
+	inside_word = 0;
+	while (*str)
 	{
-		if (*string != character && !in_word)
+		if (*str != character && inside_word == 0)
 		{
-			count++;
-			in_word = 1;
+			inside_word = 1;
+			word_count++;
 		}
-		else if (*string == character)
-			in_word = 0;
-		string++;
+		else if (*str == character)
+			inside_word = 0;
+		str++;
 	}
-	return (count);
+	return (word_count);
 }
 
-static char	*get_next_word(const char *string, char character, size_t *index)
+static char *word_duplicate(const char *source, int start_index, int end_index)
 {
-	size_t	start;
+	char *word;
+	int word_index;
 
-	while (string[*index] && string[*index] == character)
-		(*index)++;
-	start = *index;
-	while (string[*index] && string[*index] != character)
-		(*index)++;
-	return (ft_substr(string, start, *index - start));
-}
-
-static void	*validate_not_null(void *pointer)
-{
-	if (!pointer)
-		return (NULL);
-	return (pointer);
+	word_index = 0;
+	word = malloc((end_index - start_index + 1) * sizeof(char));
+	while (start_index < end_index)
+		word[word_index++] = source[start_index++];
+	word[word_index] = '\0';
+	return (word);
+	
 }
 
 char	**ft_split(char const *string, char character)
 {
-	char	**result;
 	size_t	current_position;
 	size_t	total_words;
 	size_t	word_index;
+	char	**result;
 
 	current_position = 0;
 	word_index = 0;
