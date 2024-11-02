@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:33:19 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/30 01:45:05 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/11/02 23:24:58 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_strdup(const char *source);
 char	*ft_substr(char const *string, unsigned int start, size_t length);
 char	*ft_strjoin(char const *string1, char const *string2);
 char	*ft_strtrim(char const *string, char const *set);
-char	**ft_split(char const *string, char character);
+char	**ft_split(char const *s, char c);
 char	*ft_itoa(int number);
 char	*ft_strmapi(char const *string, char (*function)(unsigned int, char));
 void	ft_striteri(char *string, void (*function)(unsigned int, char *));

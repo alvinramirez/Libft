@@ -6,17 +6,17 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:10:53 by alvinram          #+#    #+#             */
-/*   Updated: 2024/11/01 23:48:02 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/11/02 23:22:37 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int count_words(const char *str, char character)
+static int	count_words(const char *str, char character)
 {
-	int word_count;
-	int inside_word;
-	
+	int	word_count;
+	int	inside_word;
+
 	word_count = 0;
 	inside_word = 0;
 	while (*str)
@@ -33,10 +33,10 @@ static int count_words(const char *str, char character)
 	return (word_count);
 }
 
-static char *word_duplicate(const char *source, int start_index, int end_index)
+static char	*word_duplicate(const char *source, int start_index, int end_index)
 {
-	char *word;
-	int word_index;
+	char	*word;
+	int		word_index;
 
 	word_index = 0;
 	word = malloc((end_index - start_index + 1) * sizeof(char));
@@ -44,34 +44,33 @@ static char *word_duplicate(const char *source, int start_index, int end_index)
 		word[word_index++] = source[start_index++];
 	word[word_index] = '\0';
 	return (word);
-	
 }
 
-char	**ft_split(char const *string, char character)
+char	**ft_split(char const *s, char c)
 {
-	size_t	current_position;
-	size_t	total_words;
+	size_t	string_index;
 	size_t	word_index;
-	char	**result;
+	int		start_index;
+	char	**split;
 
-	current_position = 0;
+	split = split = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!s || !split)
+		return (0);
+	string_index = 0;
 	word_index = 0;
-	result = allocate_result_array(string, character, &total_words);
-	if ((!validate_not_null((void *)string)) || !validate_not_null(result))
-		return (NULL);
-	while (word_index < total_words)
+	start_index = -1;
+	while (string_index <= ft_strlen(s))
 	{
-		result[word_index] = get_next_word(string, character,
-				&current_position);
-		if (!result[word_index])
+		if (s[string_index] != c && start_index < 0)
+			start_index = string_index;
+		else if ((s[string_index] == c || string_index == ft_strlen(s))
+			&& start_index >= 0)
 		{
-			while (word_index > 0)
-				free(result[--word_index]);
-			free(result);
-			return (NULL);
+			split[word_index++] = word_duplicate(s, start_index, string_index);
+			start_index = -1;
 		}
-		word_index++;
+		string_index++;
 	}
-	result[word_index] = (NULL);
-	return (result);
+	split[word_index] = 0;
+	return (split);
 }
