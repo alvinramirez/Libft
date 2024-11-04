@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:10:53 by alvinram          #+#    #+#             */
-/*   Updated: 2024/11/02 23:22:37 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/11/04 19:54:31 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	**ft_split(char const *s, char c)
 	int		start_index;
 	char	**split;
 
-	split = split = malloc((count_words(s, c) + 1) * sizeof(char *));
+	split = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!s || !split)
 		return (0);
 	string_index = 0;

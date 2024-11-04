@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:12:14 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/30 01:40:21 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/11/04 19:53:09 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strjoin(char const *string1, char const *string2)
 {
-	size_t string1_length;
-	size_t string2_length;
-	char *join;
+	size_t	string1_length;
+	size_t	string2_length;
+	char	*join;
 
 	if (!string1 || !string2)
 		return (NULL);
