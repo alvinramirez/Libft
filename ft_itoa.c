@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:13:10 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/30 01:32:20 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/11/12 16:17:49 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	count_char(long number)
 	if (number <= 0)
 	{
 		count++;
-		number = number - 1;
+		number = -number;
 	}
 	while (number != 0)
 	{
