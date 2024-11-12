@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:10:53 by alvinram          #+#    #+#             */
-/*   Updated: 2024/11/04 19:54:31 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:12:51 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ static char	*word_duplicate(const char *source, int start_index, int end_index)
 
 	word_index = 0;
 	word = malloc((end_index - start_index + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
 	while (start_index < end_index)
 		word[word_index++] = source[start_index++];
 	word[word_index] = '\0';
@@ -55,7 +57,7 @@ char	**ft_split(char const *s, char c)
 
 	split = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!s || !split)
-		return (0);
+		return (NULL);
 	string_index = 0;
 	word_index = 0;
 	start_index = -1;
