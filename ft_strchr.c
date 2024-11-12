@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 19:46:44 by alvinram          #+#    #+#             */
-/*   Updated: 2024/10/30 01:39:00 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:01:45 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,18 @@
 
 char	*ft_strchr(const char *string, int character)
 {
-	while (*string != '\0' && character != *string)
+	unsigned char	search_char;
+
+	search_char = (unsigned char)character;
+	while (*string)
 	{
+		if (*string == search_char)
+		{
+			return ((char *)string);
+		}
 		string++;
 	}
-	if (character == *string)
+	if (search_char == '\0')
 	{
 		return ((char *)string);
 	}
