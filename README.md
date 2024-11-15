@@ -61,7 +61,7 @@ make
 `make re` - Use rules `fclean` + `all`.
 
 ## MANDATORY
-> The mandatory functions in libft include both functions from the standard C library and other functions that are useful for character, string, and memory manipulation. These **34 mandatory functions** are essential to achieving a **grade of 100**.
+> The mandatory functions in libft include both functions from the standard C library and other functions that are useful for character, string, and memory manipulation. These **35 mandatory functions** are essential to achieving a **grade of 100**.
 
 #### Check and manipulate characters:
 | Function | Description |
@@ -140,4 +140,4 @@ If you find any issues or have suggestions for improvements, feel free to fork t
 
 ## LICENSE
 
-This project is available under the MIT License. For further details, please refer to the [LICENSE](https://github.com/alvinramirez/libft/main/LICENSE) file.
+This project is available under the MIT License. For further details, please refer to the [LICENSE](https://github.com/alvinramirez/Libft/blob/main/LICENSE) file.
