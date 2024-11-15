@@ -6,7 +6,7 @@
 /*   By: alvinram <alvinram@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 21:10:53 by alvinram          #+#    #+#             */
-/*   Updated: 2024/11/12 17:12:51 by alvinram         ###   ########.fr       */
+/*   Updated: 2024/11/14 23:38:26 by alvinram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ static char	*word_duplicate(const char *source, int start_index, int end_index)
 	return (word);
 }
 
+static void free_split(char **split, size_t words_allocated)
+{
+	
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	string_index;
@@ -74,5 +79,43 @@ char	**ft_split(char const *s, char c)
 		string_index++;
 	}
 	split[word_index] = 0;
+	return (split);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	string_index;
+	size_t	word_index;
+	int		start_index;
+	char	**split;
+
+	// Verificación de `s` antes de contar palabras
+	if (!s)
+		return (NULL);
+	
+	split = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!split)
+		return (NULL);
+	string_index = 0;
+	word_index = 0;
+	start_index = -1;
+	while (string_index <= ft_strlen(s))
+	{
+		if (s[string_index] != c && start_index < 0)
+			start_index = string_index;
+		else if ((s[string_index] == c || string_index == ft_strlen(s)) && start_index >= 0)
+		{
+			split[word_index] = word_duplicate(s, start_index, string_index);
+			if (!split[word_index]) // Verificar si la asignación de word_duplicate falló
+			{
+				free_split(split, word_index); // Liberar toda la memoria asignada
+				return (NULL);
+			}
+			word_index++;
+			start_index = -1;
+		}
+		string_index++;
+	}
+	split[word_index] = NULL; // Agregar el terminador nulo final
 	return (split);
 }
